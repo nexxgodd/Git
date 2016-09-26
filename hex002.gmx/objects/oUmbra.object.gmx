@@ -30,6 +30,9 @@
 
 totalMoves = 6;
 remainingMoves = totalMoves;
+
+abilityList[1] = "Warp";
+abilityList[0] = "Move";
 </string>
           </argument>
         </arguments>

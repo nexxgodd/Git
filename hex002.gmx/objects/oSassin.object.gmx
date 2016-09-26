@@ -28,8 +28,9 @@
             <string>//selected = false;
 //toHex()
 
-totalMoves = 10;
+totalMoves = 11;
 remainingMoves = totalMoves;
+abilityList[0] = "Move";
 </string>
           </argument>
         </arguments>

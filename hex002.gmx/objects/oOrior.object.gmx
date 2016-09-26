@@ -30,6 +30,7 @@
 
 totalMoves = 10;
 remainingMoves = totalMoves;
+abilityList[0] = "Move";
 </string>
           </argument>
         </arguments>
