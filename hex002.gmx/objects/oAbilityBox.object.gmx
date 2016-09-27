@@ -76,7 +76,13 @@ if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_right)){
             <string>//draw_self();
 
 draw_rectangle(x,y,x+width,y+height,1);
-draw_text(x+16,y+16,"teleport");
+
+draw_set_halign(fa_center);
+for(var i = 0; i&lt;count;i++){
+    draw_text(center,y+buffer+i*2*buffer,abilities[i]);
+}
+    
+    
 </string>
           </argument>
         </arguments>
