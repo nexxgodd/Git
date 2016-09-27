@@ -127,9 +127,7 @@ else if ((global.selected == noone &amp;&amp; visitor != noone &amp;&amp; visito
     image_blend = c_white;
     ds_list_clear(global.moveList);
     
-    
-    var box = instance_create(x,y,oAbilityBox);
-    box.owner = id;
+    create_abilityBox(id);
 }
 
 </string>

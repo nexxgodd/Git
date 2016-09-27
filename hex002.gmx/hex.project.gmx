@@ -28,6 +28,7 @@
     <script>scripts\findShortestPathTo.gml</script>
     <script>scripts\re_path.gml</script>
     <script>scripts\afterHim.gml</script>
+    <script>scripts\create_abilityBox.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fF</font>

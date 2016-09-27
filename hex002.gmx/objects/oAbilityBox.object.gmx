@@ -73,7 +73,9 @@ if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_right)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>//draw_self();
+
+draw_rectangle(x,y,x+width,y+height,1);
 draw_text(x+16,y+16,"teleport");
 </string>
           </argument>
