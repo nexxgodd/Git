@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>
 if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_right)){
-    if (position_meeting(mouse_x,mouse_y,id)){
+    if (position_meeting(mouse_x,mouse_y,id)){//mouse in thing
         
         window_set_caption("yep.....");
     
@@ -79,12 +79,19 @@ draw_set_colour(c_black);
 draw_set_alpha(.5);
 draw_rectangle(x,y,x+width,y+height,false);
 draw_set_alpha(1);
-draw_rectangle(x,y,x+width,y+height,true);
+draw_rectangle(x,y,x+width,y+height,true);//border
 
-draw_set_colour(c_white);
+var y2= y+buffer-1;
+
 draw_set_halign(fa_center);
 for(var i = 0; i&lt;count;i++){
-    draw_text(center,y+buffer+i*2*buffer,abilities[i]);
+    draw_set_colour(c_white);
+    draw_rectangle(center-half[i], y2, center+half[i], y2+buffer+2,false);
+    //border?
+    y2++;
+    draw_set_colour(c_black);
+    draw_text(center,y2,abilities[i]);
+    y2+=buffer*2-1;
 }
     
     
