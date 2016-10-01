@@ -50,13 +50,13 @@ dragY = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(keyboard_check_pressed(vk_pagedown)){
-    view_wview[0] /= 2;
-    view_hview[0] /= 2;
+            <string>if(keyboard_check_pressed(vk_pageup)|| mouse_wheel_up()){
+    view_wview[0] /= 1.2;
+    view_hview[0] /= 1.2;
 }
-if(keyboard_check_pressed(vk_pageup)){
-    view_wview[0] *= 2;
-    view_hview[0] *= 2;
+if(keyboard_check_pressed(vk_pagedown) || mouse_wheel_down()){
+    view_wview[0] *= 1.2;
+    view_hview[0] *= 1.2;
 }
 
 

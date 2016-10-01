@@ -40,6 +40,7 @@ while(j&lt;room_height+edgeBuffer){//go right untill edge
     while(i&lt;room_width+edgeBuffer){//go down untill edge
         current = instance_create(i,j,oTile);
         current.name = '(' + string(m)+', '+string(n) + ')';           //debug name
+        current.depthMod = 100-n;
         tileMap[m,n] = current;
         i+=32;
         m++;

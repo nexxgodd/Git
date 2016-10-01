@@ -3,4 +3,4 @@
 
 var tile = tileMap[argument0,argument1];
 tile.visitor = instance_create(tile.x,tile.y,argument2);
-
+tile.visitor.depth= tile.depthMod;

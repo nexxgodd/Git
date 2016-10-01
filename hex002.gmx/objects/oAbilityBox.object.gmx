@@ -26,9 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>
-if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_right)){
-    if (position_meeting(mouse_x,mouse_y,id)){//mouse in thing
-        
+
+if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
+    //what box is the mouse in?
+    
+    //if in a box and mouse click do a switch
+    
+    //if "teleport"
         window_set_caption("yep.....");
     
         global.blocked = true; ///this...
@@ -43,6 +47,19 @@ if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_right)){
             global.previous = here;
         }
         instance_destroy();
+
+}//click out of box
+else if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_right)){
+    owner.image_blend = c_red;
+    instance_destroy();
+
+}
+
+
+if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_right)){
+    if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in thing
+        
+        
     }
     else {//outside object
         owner.image_blend = c_red;
