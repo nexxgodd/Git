@@ -26,46 +26,60 @@
           <argument>
             <kind>1</kind>
             <string>
+hover = -1;
 
 if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
     //what box is the mouse in?
+    var y2 = y+buffer-1;
+    for(var i = 0; i&lt;count; i++){
+        if(mouse_y&lt; y2){
+            break;
+        }
+        y2+=buffer+2;
+        if(mouse_y&lt;=y2 &amp;&amp; mouse_x&gt;= center-half[i] &amp;&amp; mouse_x&lt;= center+half[i]){
+            hover =i;
+            break;        
+        }
+        y2+= buffer-1;
+    }
+    global.blocked = true; ///this...
     
     //if in a box and mouse click do a switch
-    
-    //if "teleport"
-        window_set_caption("yep.....");
-    
-        global.blocked = true; ///this...
-        
-        global.teleport = true;
-        global.selected = owner;
-        //ds_list_add(global.moveList,owner);
-        global.previous = noone;
-        var here = instance_position(mouse_x,mouse_y,oTile);
-        if(here != noone){
-            here.image_blend = c_white;
-            global.previous = here;
+    if(hover!=-1 &amp;&amp; (mouse_check_button_pressed(mb_left)|| 
+                     mouse_check_button_pressed(mb_right))){
+        switch abilities[hover]{
+            case "Move":
+                break;
+            case "Teleport":
+                window_set_caption("yep.....");
+            
+                
+                
+                global.teleport = true;
+                global.selected = owner;
+                //ds_list_add(global.moveList,owner);
+                global.previous = noone;
+                var here = instance_position(mouse_x,mouse_y,oTile);
+                if(here != noone &amp;&amp; here.visitor==noone){
+                    here.image_blend = c_white;
+                    global.previous = here;
+                }
+                instance_destroy();
+                break;
+            default:
+                window_set_caption("WTF DID YOU DO?");
         }
-        instance_destroy();
+    }
+    
+    
 
 }//click out of box
 else if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_right)){
     owner.image_blend = c_red;
     instance_destroy();
-
 }
 
 
-if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_right)){
-    if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in thing
-        
-        
-    }
-    else {//outside object
-        owner.image_blend = c_red;
-        instance_destroy();
-    }
-}        
 
 
 </string>
@@ -96,19 +110,28 @@ draw_set_colour(c_black);
 draw_set_alpha(.5);
 draw_rectangle(x,y,x+width,y+height,false);
 draw_set_alpha(1);
-draw_rectangle(x,y,x+width,y+height,true);//border
+draw_rectangle(x-1,y-1,x+width,y+height,true);//border
 
 var y2= y+buffer-1;
 
 draw_set_halign(fa_center);
 for(var i = 0; i&lt;count;i++){
-    draw_set_colour(c_white);
+    if(hover==i){//change color if mouse over
+        draw_set_colour(c_yellow);
+    }
+    else{
+        draw_set_colour(c_white);
+    }
     draw_rectangle(center-half[i], y2, center+half[i], y2+buffer+2,false);
+    draw_set_colour(c_black);
+    draw_rectangle(center-half[i]-1, y2-1, center+half[i], y2+buffer+2,true);
     //border?
     y2++;
-    draw_set_colour(c_black);
+    
     draw_text(center,y2,abilities[i]);
     y2+=buffer*2-1;
+    
+    //draw_rectangle(mouse_x,mouse_y,mouse_x,mouse_y,false);
 }
     
     

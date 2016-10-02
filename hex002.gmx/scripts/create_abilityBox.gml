@@ -16,7 +16,7 @@ with (instance_create(x+16,y+16,oAbilityBox)){
     width+=2*buffer;
     height = buffer+(2*buffer*count);
     center = floor(x+width/2);
-    //hover idk...
+    hover = -1;
 }
 
 
