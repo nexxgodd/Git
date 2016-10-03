@@ -53,9 +53,7 @@
         global.previous.image_blend = c_red;
     }
     global.previous = id;
-    image_blend = c_white;
-
-    
+    image_blend = c_white; 
 }
 
 
@@ -156,11 +154,23 @@ else if ((global.selected == noone &amp;&amp; visitor != noone &amp;&amp; visito
 
 if(global.blocked) {exit;} //exit if object is on top of this one
 
-
 window_set_caption(name);
 
+if(global.teleport &amp;&amp; visitor == noone){
+    global.previous = noone;
+    //visitor = global.selected;
+    visitor = global.selected.visitor;
+    global.selected.visitor = noone;
+    global.selected.image_blend = c_red;
+    global.selected=noone;
+    visitor.x=x;
+    visitor.y=y;
+    visitor.depth = depthMod;
+    image_blend = c_red;  
+    global.teleport = false;
+}
 //toggle selected
-if(visitor != noone &amp;&amp; visitor.object_index != oWall){
+else if(visitor != noone &amp;&amp; visitor.object_index != oWall){
     if(global.selected == noone){
         global.selected = id;
         image_blend = c_white;

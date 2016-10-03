@@ -49,21 +49,26 @@ if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
                      mouse_check_button_pressed(mb_right))){
         switch abilities[hover]{
             case "Move":
+                global.selected = owner;
+                //image_blend = c_white;
+                ds_list_add(global.moveList,owner);
+                instance_destroy();
                 break;
             case "Teleport":
                 window_set_caption("yep.....");
             
-                
-                
                 global.teleport = true;
                 global.selected = owner;
-                //ds_list_add(global.moveList,owner);
-                global.previous = noone;
+                
                 var here = instance_position(mouse_x,mouse_y,oTile);
                 if(here != noone &amp;&amp; here.visitor==noone){
                     here.image_blend = c_white;
                     global.previous = here;
                 }
+                else{
+                    global.previous = noone;
+                }
+                    
                 instance_destroy();
                 break;
             default:
