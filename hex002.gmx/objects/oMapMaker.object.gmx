@@ -183,6 +183,8 @@ global.blocked = false; // stop click blead through
 global.teleport = false;
 global.previous = noone;
 global.debugClick = "Click Something!";
+global.isBusy = false;
+//global.actor = noone;
 
 instance_create(0,0,oMiscBS);
 instance_destroy();

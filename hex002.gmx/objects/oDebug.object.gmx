@@ -92,7 +92,12 @@ buffer = string_height('B')*1.5;
     draw_text(0,y2,"previous = " + word);
     
     y2+=buffer;
-    draw_text(0,y2,string(global.debugClick));
+    draw_text(0,y2,"clicked on " + string(global.debugClick));
+    
+    y2+=buffer;
+    if(global.isBusy) word = "true";
+    else word = "false";
+    draw_text(0,y2,"isBusy = " + word);
 }
 </string>
           </argument>

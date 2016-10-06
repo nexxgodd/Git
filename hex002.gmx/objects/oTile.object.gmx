@@ -160,16 +160,21 @@ global.debugClick = name;
 //telleport
 if(global.teleport &amp;&amp; visitor == noone){
     global.previous = noone;
-    //visitor = global.selected;
     visitor = global.selected.visitor;
     global.selected.visitor = noone;
     global.selected.image_blend = c_red;
     global.selected=noone;
-    visitor.x=x;
-    visitor.y=y;
-    visitor.depth = depthMod;
-    image_blend = c_red;  
+    image_blend = c_red;
     global.teleport = false;
+
+    //maybe?    
+    visitor.tx=x;
+    visitor.ty=y;
+    visitor.tdepth = depthMod;
+    visitor.isTeleport = true;
+    visitor.phase=0;
+    global.isBusy = true; 
+    
 }
 
 //toggle selected
