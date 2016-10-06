@@ -49,7 +49,6 @@
     <object>objects\oMiscBS</object>
     <object>objects\oDebug</object>
   </objects>
-  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>
