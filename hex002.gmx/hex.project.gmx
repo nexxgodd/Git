@@ -20,6 +20,8 @@
     <sprite>sprites\sEdd</sprite>
     <sprite>sprites\sAbilityBox</sprite>
     <sprite>sprites\sUmbraTeleport</sprite>
+    <sprite>sprites\sUmbraIdol1</sprite>
+    <sprite>sprites\sUmbraIdol2</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
