@@ -55,8 +55,6 @@ if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
                 instance_destroy();
                 break;
             case "Teleport":
-                window_set_caption("yep.....");
-            
                 global.teleport = true;
                 global.selected = owner;
                 

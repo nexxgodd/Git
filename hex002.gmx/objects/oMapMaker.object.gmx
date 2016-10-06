@@ -100,41 +100,41 @@ while(j&lt;room_height-edgeBuffer){//go right untill edge
         //5
         if(tileMap[m-1,n-1]!=noone){//r  upper left
             current.neighbor[edgeCount]=tileMap[m-1,n-1];
-            current.name+='r';
+            //current.name+='r';
             edgeCount++;
         }//else{current.neighbor[]=noone;}
         //4
         if(tileMap[m-1,n]!=noone){//d  left
             current.neighbor[edgeCount]=tileMap[m-1,n];
-            current.name+='d';
+            //current.name+='d';
             edgeCount++;
         }//else{current.neighbor[]=noone;} 
         //3
         if(tileMap[m,n+1]!=noone){//c  lower left
             current.neighbor[edgeCount]=tileMap[m,n+1];
-            current.name+='c';
+            //current.name+='c';
             edgeCount++;
         }//else{current.neighbor[]=noone;}
         //2
         if(tileMap[m+1,n+1]!=noone){//v  lower right
             current.neighbor[edgeCount]=tileMap[m+1,n+1];
-            current.name+='v';
+            //current.name+='v';
             edgeCount++;
         }//else{current.neighbor[]=noone;}
         //1
         if(tileMap[m+1,n]!=noone){//g  right
             current.neighbor[edgeCount]=tileMap[m+1,n];
-            current.name+='g';
+            //current.name+='g';
             edgeCount++;
         }//else{current.neighbor[]=noone;}
         //0
         if(tileMap[m,n-1]!=noone){//t  upper right
             current.neighbor[edgeCount]=tileMap[m,n-1];
-            current.name+='t';
+            //current.name+='t';
             edgeCount++;
         }//else{current.neighbor[]=noone;}
         
-        current.name+=' '+string(edgeCount);
+        //current.name+=' '+string(edgeCount);
 
         current.image_blend = c_red;
         i+=32;
@@ -181,9 +181,12 @@ global.selected = noone;
 global.moveList = ds_list_create();
 global.blocked = false; // stop click blead through
 global.teleport = false;
+global.previous = noone;
+global.debugClick = "Click Something!";
 
 instance_create(0,0,oMiscBS);
 instance_destroy();
+instance_create(0,0,oDebug);
 
 
 

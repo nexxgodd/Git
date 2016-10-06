@@ -154,7 +154,8 @@ else if ((global.selected == noone &amp;&amp; visitor != noone &amp;&amp; visito
 
 if(global.blocked) {exit;} //exit if object is on top of this one
 
-window_set_caption(name);
+//window_set_caption(name);
+global.debugClick = name;
 
 if(global.teleport &amp;&amp; visitor == noone){
     global.previous = noone;
