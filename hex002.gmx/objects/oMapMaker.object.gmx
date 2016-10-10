@@ -182,7 +182,7 @@ global.moveList = ds_list_create();
 global.blocked = false; // stop click blead through
 global.teleport = false;
 global.previous = noone;
-global.debugClick = "Click Something!";
+global.debugClick = "nothing!";
 global.isBusy = false;
 //global.actor = noone;
 
