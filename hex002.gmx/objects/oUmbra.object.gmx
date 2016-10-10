@@ -72,13 +72,12 @@ case 1: //forward
             depth=tdepth  
             
             image_speed = 0;
-            pauseCount= current_time+500;
+            unpauseTime= current_time+500;
             phase=2; 
-            
         }
         break;
 case 2:
-        if(current_time &gt;pauseCount){
+        if(current_time &gt;unpauseTime){
             image_speed=-.1;
             phase = 3;
         }

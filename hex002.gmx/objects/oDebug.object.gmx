@@ -98,6 +98,17 @@ buffer = string_height('B')*1.5;
     if(global.isBusy) word = "true";
     else word = "false";
     draw_text(0,y2,"isBusy = " + word);
+    
+    y2+=buffer;
+    
+    
+    
+    
+    y2+=buffer;
+    draw_text(0,y2,"view X = " + string(view_xview));
+    
+    y2+=buffer;
+    draw_text(0,y2,"view Y = " + string(view_yview));
 }
 </string>
           </argument>
