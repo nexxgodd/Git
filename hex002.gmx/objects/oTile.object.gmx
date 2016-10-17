@@ -119,15 +119,23 @@ if(global.teleport){
     global.previous = noone;
 }
 
-else if ((global.selected == noone &amp;&amp; visitor != noone &amp;&amp; visitor.object_index != oWall )
-        || global.selected == id){
+else if (global.selected == noone){
+    if(visitor != noone &amp;&amp; visitor.object_index != oWall ){
+        image_blend = c_white;
+        create_abilityBox(id);
+    }
+}
+else if(global.selected == id){
     global.selected=noone;
-    image_blend = c_white;
-    ds_list_clear(global.moveList);
-    
+    ds_list_clear(global.moveList);    
     create_abilityBox(id);
 }
-
+else{
+    //backtrack list
+    for(var i = index;i&gt;=0;i--){//backtrack
+        list[|i].image_blend = c_red;            
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -195,19 +203,28 @@ else if(visitor != noone &amp;&amp; visitor.object_index != oWall){
 else if(global.selected != noone){
     var list = global.moveList;
     var index = ds_list_find_index(list,id);//on list
+    //index cant be zero because of above code
     if (index&gt;-1){// &amp;&amp; index&lt;=global.selected.visitor.remainingMoves ){
-        for(var i = ds_list_size(list)-1;i&gt;=0;i--){//backtrack
+        for(var i = index;i&gt;=0;i--){//backtrack
             list[|i].image_blend = c_red;            
         }
-        ds_list_clear(list);
+        //ds_list_clear(list);
         visitor = global.selected.visitor;
         global.selected.visitor = noone;
         global.selected=noone;
-        visitor.x=x;
-        visitor.y=y;
-        visitor.depth = depthMod;
+        //visitor.x=x;
+        //visitor.y=y;
+        //visitor.depth = depthMod;
         //visitor.remainingMoves-=index; 
+        
+        //maybe?    
+        visitor.isMoving = true;
+        visitor.phase=0;
+        visitor.next = 0;
+        visitor.moveLength = index;
+        global.isBusy = true; 
     }
+    
 
 }
 

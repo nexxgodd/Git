@@ -41,6 +41,7 @@
     <object>objects\oMapMaker</object>
     <object>objects\oCamera</object>
     <object>objects\oUmbra</object>
+    <object>objects\oCharacters</object>
     <object>objects\oNeco</object>
     <object>objects\oSassin</object>
     <object>objects\oOrior</object>
