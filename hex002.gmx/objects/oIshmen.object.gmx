@@ -25,12 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//selected = false;
-//toHex()
+            <string>
+originalType = object_index;
 
 totalMoves = 10;
 remainingMoves = totalMoves;
 abilityList[0] = "Move";
+moveSprite = sIshmen;
 </string>
           </argument>
         </arguments>

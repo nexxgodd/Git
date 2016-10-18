@@ -41,7 +41,6 @@
     <object>objects\oMapMaker</object>
     <object>objects\oCamera</object>
     <object>objects\oUmbra</object>
-    <object>objects\oCharacters</object>
     <object>objects\oNeco</object>
     <object>objects\oSassin</object>
     <object>objects\oOrior</object>
@@ -51,6 +50,8 @@
     <object>objects\oAbilityBox</object>
     <object>objects\oMiscBS</object>
     <object>objects\oDebug</object>
+    <object>objects\oTeleportAnimator</object>
+    <object>objects\oMoveAnimator</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

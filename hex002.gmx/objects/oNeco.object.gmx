@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//selected = false;
-//toHex()
+            <string>
+originalType = object_index;
 
 totalMoves = 5;
 remainingMoves = totalMoves;
@@ -36,6 +36,9 @@ abilityList[1] = "Move";
 abilityList[2] = "Move";
 abilityList[3] = "Move";
 abilityList[4] = "Move";
+moveSprite = sNeco2;
+
+
 </string>
           </argument>
         </arguments>

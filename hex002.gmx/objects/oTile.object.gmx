@@ -179,10 +179,11 @@ if(global.teleport &amp;&amp; visitor == noone){
     visitor.tx=x;
     visitor.ty=y;
     visitor.tdepth = depthMod;
-    visitor.isTeleport = true;
-    visitor.phase=0;
     global.isBusy = true; 
-    
+    with visitor{
+        instance_change(oTeleportAnimator,true);
+    }
+        
 }
 
 //toggle selected
@@ -212,17 +213,16 @@ else if(global.selected != noone){
         visitor = global.selected.visitor;
         global.selected.visitor = noone;
         global.selected=noone;
-        //visitor.x=x;
-        //visitor.y=y;
-        //visitor.depth = depthMod;
-        //visitor.remainingMoves-=index; 
         
         //maybe?    
-        visitor.isMoving = true;
-        visitor.phase=0;
-        visitor.next = 0;
+        //visitor.isMoving = true;
+        //visitor.phase=0;
+        //visitor.next = 0;
         visitor.moveLength = index;
         global.isBusy = true; 
+        with visitor{
+            instance_change(oMoveAnimator,true);
+        }
     }
     
 

@@ -3,4 +3,9 @@
 
 var tile = tileMap[argument0,argument1];
 tile.visitor = instance_create(tile.x,tile.y,argument2);
-tile.visitor.depth= tile.depthMod;
+if(argument2 == oWall){
+    tile.visitor.depth= 999;
+}
+else{
+    tile.visitor.depth= tile.depthMod;
+}

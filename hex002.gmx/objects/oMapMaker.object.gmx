@@ -184,12 +184,18 @@ global.teleport = false;
 global.previous = noone;
 global.debugClick = "nothing!";
 global.isBusy = false;
+//global.acty = instance_create(0,0,oAnimator);
 //global.actor = noone;
 
+/*
+enum Action{
+    Move,
+    Teleport
+}
+*/
 instance_create(0,0,oMiscBS);
-instance_destroy();
 instance_create(0,0,oDebug);
-
+instance_destroy();
 
 
 </string>
