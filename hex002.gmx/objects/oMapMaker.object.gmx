@@ -147,33 +147,35 @@ while(j&lt;room_height-edgeBuffer){//go right untill edge
     m= 1+floor((n+1)/2)
 }
 
+global.playerDudes = ds_list_create();
+global.enemyDudes = ds_list_create();
 
 
 //add toon
-create_instance(4,4,oUmbra);
-create_instance(5,2,oNeco);
-create_instance(22,14,oSassin);
-create_instance(21,15,oOrior);
-create_instance(19,12,oIshmen);
-create_instance(21,12,oEdd);
+create_instance(4,4,oUmbra,0);
+create_instance(5,2,oNeco,0);
+create_instance(22,14,oSassin,1);
+create_instance(21,15,oOrior,1);
+create_instance(19,12,oIshmen,1);
+create_instance(21,12,oEdd,1);
 
-create_instance(20,11,oWall);
-create_instance(19,11,oWall);
-create_instance(18,11,oWall);
-create_instance(18,12,oWall);
-create_instance(20,15,oWall);
+create_instance(20,11,oWall,2);
+create_instance(19,11,oWall,2);
+create_instance(18,11,oWall,2);
+create_instance(18,12,oWall,2);
+create_instance(20,15,oWall,2);
 
 
 for(var a=9; a&lt;25; a++){
-    create_instance(a,16,oWall);
+    create_instance(a,16,oWall,2);
 }
 
-create_instance(16,1,oWall);
+create_instance(16,1,oWall,2);
 var b = 2;
 for(var a=17; a&lt;24; a++){
-    create_instance(a,b,oWall);
+    create_instance(a,b,oWall,2);
     b++;
-    create_instance(a,b,oWall);
+    create_instance(a,b,oWall,2);
     b++;
 }
 
@@ -187,12 +189,6 @@ global.isBusy = false;
 //global.acty = instance_create(0,0,oAnimator);
 //global.actor = noone;
 
-/*
-enum Action{
-    Move,
-    Teleport
-}
-*/
 instance_create(0,0,oMiscBS);
 instance_create(0,0,oDebug);
 instance_destroy();

@@ -132,9 +132,13 @@ else if(global.selected == id){
 }
 else{
     //backtrack list
-    for(var i = index;i&gt;=0;i--){//backtrack
+    var list = global.moveList;
+    for(var i = ds_list_size(list)-1;i&gt;=0;i--){//backtrack
         list[|i].image_blend = c_red;            
     }
+    ds_list_clear(list);
+    global.selected=noone;
+    
 }
 </string>
           </argument>

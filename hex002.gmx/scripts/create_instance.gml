@@ -1,11 +1,27 @@
-///create_instance(m,n,obj)
-///create instance on tile[m,n]
+///create_instance(m,n,obj,owner)
+///create instance on tile[m,n] and add to owner
 
 var tile = tileMap[argument0,argument1];
-tile.visitor = instance_create(tile.x,tile.y,argument2);
+var v = instance_create(tile.x,tile.y,argument2);
+tile.visitor = v;
 if(argument2 == oWall){
-    tile.visitor.depth= 999;
+    v.depth= 999;
 }
 else{
-    tile.visitor.depth= tile.depthMod;
+    v.depth= tile.depthMod;
+}
+
+switch(argument3){
+    case 0:
+        ds_list_add(global.playerDudes,v);
+        break;
+    case 1:
+        ds_list_add(global.enemyDudes,v);
+        break;
+    case 2:
+        break;
+    default:
+        show_error("need an owner", false);
+        
+
 }
