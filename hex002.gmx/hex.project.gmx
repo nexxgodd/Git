@@ -22,6 +22,10 @@
     <sprite>sprites\sUmbraTeleport</sprite>
     <sprite>sprites\sUmbraIdol1</sprite>
     <sprite>sprites\sUmbraIdol2</sprite>
+    <sprite>sprites\sDevourer</sprite>
+    <sprite>sprites\sNecromancer</sprite>
+    <sprite>sprites\sprite21</sprite>
+    <sprite>sprites\sprite17</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>

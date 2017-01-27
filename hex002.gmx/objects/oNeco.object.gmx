@@ -36,7 +36,7 @@ abilityList[1] = "Move";
 abilityList[2] = "Move";
 abilityList[3] = "Move";
 abilityList[4] = "Move";
-moveSprite = sNeco2;
+moveSprite = sNecromancer;
 
 
 </string>
