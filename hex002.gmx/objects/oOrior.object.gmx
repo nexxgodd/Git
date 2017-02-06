@@ -31,7 +31,7 @@ originalType = object_index;
 totalMoves = 10;
 remainingMoves = totalMoves;
 abilityList[0] = "Move";
-moveSprite = sOrior;
+moveSprite = sDevourer;
 </string>
           </argument>
         </arguments>

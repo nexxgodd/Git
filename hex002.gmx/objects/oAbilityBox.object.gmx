@@ -30,7 +30,7 @@ hover = -1;
 
 if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
     //what box is the mouse in?
-    var y2 = y+buffer-1;
+    var y2 = y+buffer*4-1;
     for(var i = 0; i&lt;count; i++){
         if(mouse_y&lt; y2){
             break;
@@ -46,7 +46,7 @@ if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
     
     //if in a box and mouse click do a switch
     if(hover!=-1 &amp;&amp; (mouse_check_button_pressed(mb_left)|| 
-                     mouse_check_button_pressed(mb_right))){
+            mouse_check_button_pressed(mb_right)) &amp;&amp; juice &gt;= abilityCost[hover]){
         switch abilities[hover]{
             case "Move":
                 global.selected = owner;
@@ -115,11 +115,32 @@ draw_rectangle(x,y,x+width,y+height,false);
 draw_set_alpha(1);
 draw_rectangle(x-1,y-1,x+width,y+height,true);//border
 
-var y2= y+buffer-1;
+//draw juice box
+draw_set_colour(c_white);
+draw_set_alpha(.5);
+draw_rectangle(x,y,x+width,y+buffer*3,false);
+draw_set_colour(c_black);
+draw_set_alpha(1);
+draw_rectangle(x-1,y-1,x+width,y+buffer*3,true);//border
+if(hover==-1){
+    reJuice= string(juice);
+}
+else if (abilities[hover]=="Move"){
+    reJuice= string(juice) + " - X"
+}
+else{
+    reJuice= string(juice - abilityCost[hover]);
+}
+draw_text(center,y+buffer,"Juice: " + reJuice);
+
+var y2= y+buffer*4-1;
 
 draw_set_halign(fa_center);
 for(var i = 0; i&lt;count;i++){
-    if(hover==i){//change color if mouse over
+    if(abilityCost[i]&gt;juice){
+        draw_set_colour(c_dkgray);
+    }
+    else if(hover==i){//change color if mouse over
         draw_set_colour(c_yellow);
     }
     else{
@@ -131,7 +152,7 @@ for(var i = 0; i&lt;count;i++){
     //border?
     y2++;
     
-    draw_text(center,y2,abilities[i]);
+    draw_text(center,y2,abilities[i] + ": " + string(abilityCost[i]));
     y2+=buffer*2-1;
     
     //draw_rectangle(mouse_x,mouse_y,mouse_x,mouse_y,false);

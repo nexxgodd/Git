@@ -32,10 +32,7 @@ totalMoves = 5;
 remainingMoves = totalMoves;
 
 abilityList[0] = "Move";
-abilityList[1] = "Move";
-abilityList[2] = "Move";
-abilityList[3] = "Move";
-abilityList[4] = "Move";
+abilityCost[0] = 1;
 moveSprite = sNecromancer;
 
 

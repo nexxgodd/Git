@@ -109,7 +109,8 @@ else if(global.selected!=noone){//someone is selected
           <argument>
             <kind>1</kind>
             <string>
-if(global.blocked) {exit;} //exit if object is on top of this one
+//exit if object is on top of this one or animator is busy
+if(global.blocked || global.isBusy) {exit;}
 
 if(global.teleport){
     global.teleport = false;
@@ -163,8 +164,8 @@ else{
           <argument>
             <kind>1</kind>
             <string>
-
-if(global.blocked) {exit;} //exit if object is on top of this one
+//exit if object is on top of this one or animator is busy
+if(global.blocked || global.isBusy) {exit;} 
 
 //window_set_caption(name);
 global.debugClick = name;
@@ -173,6 +174,7 @@ global.debugClick = name;
 if(global.teleport &amp;&amp; visitor == noone){
     global.previous = noone;
     visitor = global.selected.visitor;
+    visitor.remainingMoves-=4;                                      //teleport cost
     global.selected.visitor = noone;
     global.selected.image_blend = c_red;
     global.selected=noone;
@@ -217,11 +219,8 @@ else if(global.selected != noone){
         visitor = global.selected.visitor;
         global.selected.visitor = noone;
         global.selected=noone;
+        visitor.remainingMoves-=index;
         
-        //maybe?    
-        //visitor.isMoving = true;
-        //visitor.phase=0;
-        //visitor.next = 0;
         visitor.moveLength = index;
         global.isBusy = true; 
         with visitor{

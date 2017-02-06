@@ -32,8 +32,10 @@ totalMoves = 6;
 remainingMoves = totalMoves;
 
 abilityList[1] = "Teleport";
+abilityCost[1] = 4;
 teleportSprite = sUmbraTeleport;
 abilityList[0] = "Move";
+abilityCost[0] = 1;
 moveSprite = sUmbraIdol1;
 
 image_speed =0;

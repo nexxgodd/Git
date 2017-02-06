@@ -8,6 +8,9 @@
     <sound>sound\sound0</sound>
   </sounds>
   <sprites name="sprites">
+    <sprites name="ui">
+      <sprite>sprites\sUIcorner</sprite>
+    </sprites>
     <sprite>sprites\sTile</sprite>
     <sprite>sprites\sWall</sprite>
     <sprite>sprites\sUmbra</sprite>
