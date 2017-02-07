@@ -69,6 +69,23 @@ if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
                     
                 instance_destroy();
                 break;
+            case "Push":
+                
+            
+            
+                break;
+            case "Earth":
+                with owner{
+                    for(var i=array_length_1d(neighbor)-1; i&gt;=0; i--){//for each neighbor
+                        if(neighbor[i].visitor==noone){
+                            neighbor[i].visitor=instance_create(neighbor[i].x,neighbor[i].y,oWall);
+                        }
+                        else{//do damage or something
+                        }
+                        
+                    }
+                }
+                break;    
             default:
                 window_set_caption("WTF DID YOU DO?");
         }

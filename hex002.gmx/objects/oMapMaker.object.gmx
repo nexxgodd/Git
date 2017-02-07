@@ -154,6 +154,7 @@ global.enemyDudes = ds_list_create();
 //add toon
 create_instance(4,4,oUmbra,0);
 create_instance(5,2,oNeco,0);
+create_instance(6,6,oTheRock,0);
 create_instance(22,14,oSassin,1);
 create_instance(21,15,oOrior,1);
 create_instance(19,12,oIshmen,1);

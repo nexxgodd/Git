@@ -17,6 +17,7 @@
     <sprite>sprites\sUmbra2</sprite>
     <sprite>sprites\sNeco</sprite>
     <sprite>sprites\sNeco2</sprite>
+    <sprite>sprites\sTheRock</sprite>
     <sprite>sprites\sSassin</sprite>
     <sprite>sprites\sOrior</sprite>
     <sprite>sprites\sIshmen</sprite>
@@ -49,6 +50,7 @@
     <object>objects\oCamera</object>
     <object>objects\oUmbra</object>
     <object>objects\oNeco</object>
+    <object>objects\oTheRock</object>
     <object>objects\oSassin</object>
     <object>objects\oOrior</object>
     <object>objects\oIshmen</object>
