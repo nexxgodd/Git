@@ -147,8 +147,11 @@ while(j&lt;room_height-edgeBuffer){//go right untill edge
     m= 1+floor((n+1)/2)
 }
 
-global.playerDudes = ds_list_create();
-global.enemyDudes = ds_list_create();
+//global.playerDudes = ds_list_create();
+//global.enemyDudes = ds_list_create();
+global.team[1] = ds_list_create();
+global.team[0] = ds_list_create();
+
 
 
 //add toon
@@ -192,6 +195,7 @@ global.isBusy = false;
 
 instance_create(0,0,oMiscBS);
 instance_create(0,0,oDebug);
+instance_create(0,0,oGUI);
 instance_destroy();
 
 

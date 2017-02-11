@@ -76,8 +76,11 @@ if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
                 break;
             case "Earth":
                 with owner{
+                    image_blend = c_red;
+                    visitor.remainingMoves-=4;                                              //earth cost
                     for(var i=array_length_1d(neighbor)-1; i&gt;=0; i--){//for each neighbor
                         if(neighbor[i].visitor==noone){
+                                                                //might have to add to team
                             neighbor[i].visitor=instance_create(neighbor[i].x,neighbor[i].y,oWall);
                         }
                         else{//do damage or something
@@ -85,6 +88,7 @@ if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
                         
                     }
                 }
+                instance_destroy();//kill ability box
                 break;    
             default:
                 window_set_caption("WTF DID YOU DO?");

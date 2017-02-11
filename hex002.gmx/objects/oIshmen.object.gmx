@@ -31,6 +31,7 @@ originalType = object_index;
 totalMoves = 10;
 remainingMoves = totalMoves;
 abilityList[0] = "Move";
+abilityCost[0] = 1;
 moveSprite = sIshmen;
 </string>
           </argument>
