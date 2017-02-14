@@ -70,9 +70,37 @@ if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
                 instance_destroy();
                 break;
             case "Push":
-                
-            
-            
+                with owner{
+                    image_blend = c_red;
+                    visitor.remainingMoves-=3;//3
+                    for(var i=array_length_1d(neighbor)-1; i&gt;=0; i--){
+                        var t0 = neighbor[i];
+                        if(t0.visitor!=noone){
+                            var xd = t0.x - x;
+                            var yd = t0.y - y;
+                            var t = noone;
+                            for(var j = 2; j&lt;5; j++){
+                                var tx = collision_point(x+xd*j,y+yd*j,oTile,true,true);
+                                if (tx != noone &amp;&amp; tx.visitor == noone){
+                                    t = tx;
+                                }
+                                else{break;}
+                            }
+                            if (t != noone){
+                                t.visitor = t0.visitor;
+                                t0.visitor = noone;
+                                t.visitor.tx=t.x;
+                                t.visitor.ty=t.y;
+                                global.isBusy ++;
+                                with t.visitor{
+                                    instance_change(oPushedAnimator,true);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                instance_destroy();//kill ability box
                 break;
             case "Earth":
                 with owner{

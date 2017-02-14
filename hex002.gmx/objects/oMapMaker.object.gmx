@@ -183,6 +183,8 @@ for(var a=17; a&lt;24; a++){
     b++;
 }
 
+global.myTeam = 0;
+global.turn = 0;
 global.selected = noone;
 global.moveList = ds_list_create();
 global.blocked = false; // stop click blead through

@@ -110,8 +110,9 @@ else if(global.selected!=noone){//someone is selected
             <kind>1</kind>
             <string>
 //exit if object is on top of this one or animator is busy
-if(global.blocked || global.isBusy) {exit;}
+if(global.blocked || global.isBusy || global.myTeam != global.turn) {exit;}
 
+//cancel teleport
 if(global.teleport){
     global.teleport = false;
     global.selected.image_blend = c_red;
@@ -120,8 +121,10 @@ if(global.teleport){
     global.previous = noone;
 }
 
+//open ability box
 else if (global.selected == noone){
-    if(visitor != noone &amp;&amp; visitor.object_index != oWall ){
+    if(visitor != noone &amp;&amp; visitor.object_index != oWall &amp;&amp; 
+            visitor.team == global.myTeam){
         image_blend = c_white;
         create_abilityBox(id);
     }
@@ -131,6 +134,8 @@ else if(global.selected == id){
     ds_list_clear(global.moveList);    
     create_abilityBox(id);
 }
+
+//cancel move
 else{
     //backtrack list
     var list = global.moveList;
@@ -165,7 +170,7 @@ else{
             <kind>1</kind>
             <string>
 //exit if object is on top of this one or animator is busy
-if(global.blocked || global.isBusy) {exit;} 
+if(global.blocked || global.isBusy || global.myTeam != global.turn) {exit;} 
 
 //window_set_caption(name);
 global.debugClick = name;
@@ -188,12 +193,12 @@ if(global.teleport &amp;&amp; visitor == noone){
     global.isBusy = true; 
     with visitor{
         instance_change(oTeleportAnimator,true);
-    }
-        
+    }     
 }
 
 //toggle selected
-else if(visitor != noone &amp;&amp; visitor.object_index != oWall){
+else if(visitor != noone &amp;&amp; visitor.object_index != oWall &amp;&amp; 
+            visitor.team == global.myTeam){
     if(global.selected == noone){
         global.selected = id;
         image_blend = c_white;
@@ -227,8 +232,6 @@ else if(global.selected != noone){
             instance_change(oMoveAnimator,true);
         }
     }
-    
-
 }
 
 </string>

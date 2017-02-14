@@ -15,20 +15,3 @@ if(argument3<2){
     ds_list_add(global.team[argument3],v);
     v.team = argument3;
 }
-
-/*
-switch(argument3){
-    case 0:
-        ds_list_add(global.playerDudes,v);
-        v.team = 0;
-        break;
-    case 1:
-        ds_list_add(global.enemyDudes,v);
-        v.team = 1;
-        break;
-    case 2://walls and shit
-        break;
-    default:
-        show_error("need an owner", false);
-}
-*/

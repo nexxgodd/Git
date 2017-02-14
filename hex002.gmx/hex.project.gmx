@@ -62,6 +62,7 @@
     <object>objects\oDebug</object>
     <object>objects\oTeleportAnimator</object>
     <object>objects\oMoveAnimator</object>
+    <object>objects\oPushedAnimator</object>
     <object>objects\oGUI</object>
   </objects>
   <rooms name="rooms">
