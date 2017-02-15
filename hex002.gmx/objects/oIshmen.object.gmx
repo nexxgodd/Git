@@ -28,8 +28,11 @@
             <string>
 originalType = object_index;
 
+totalHealth = 10;
+remainingHealth = totalHealth;
 totalMoves = 10;
 remainingMoves = totalMoves;
+
 abilityList[0] = "Move";
 abilityCost[0] = 1;
 moveSprite = sIshmen;

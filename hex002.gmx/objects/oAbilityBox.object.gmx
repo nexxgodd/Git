@@ -30,7 +30,7 @@ hover = -1;
 
 if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
     //what box is the mouse in?
-    var y2 = y+buffer*4-1;
+    var y2 = y+buffer+36+1;
     for(var i = 0; i&lt;count; i++){
         if(mouse_y&lt; y2){
             break;
@@ -46,7 +46,7 @@ if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
     
     //if in a box and mouse click do a switch
     if(hover!=-1 &amp;&amp; (mouse_check_button_pressed(mb_left)|| 
-            mouse_check_button_pressed(mb_right)) &amp;&amp; juice &gt;= abilityCost[hover]){
+            mouse_check_button_pressed(mb_right)) &amp;&amp; remainingJuice &gt;= abilityCost[hover]){
         switch abilities[hover]{
             case "Move":
                 global.selected = owner;
@@ -158,8 +158,9 @@ else if(mouse_check_button_pressed(mb_left)|| mouse_check_button_pressed(mb_righ
             <kind>1</kind>
             <string>//draw_self();
 
+//draw encompassing box
 draw_set_colour(c_black);
-draw_set_alpha(.5);
+draw_set_alpha(.15);
 draw_rectangle(x,y,x+width,y+height,false);
 draw_set_alpha(1);
 draw_rectangle(x-1,y-1,x+width,y+height,true);//border
@@ -167,26 +168,30 @@ draw_rectangle(x-1,y-1,x+width,y+height,true);//border
 //draw juice box
 draw_set_colour(c_white);
 draw_set_alpha(.5);
-draw_rectangle(x,y,x+width,y+buffer*3,false);
+draw_rectangle(x,y,x+width,y+36,false);
 draw_set_colour(c_black);
 draw_set_alpha(1);
-draw_rectangle(x-1,y-1,x+width,y+buffer*3,true);//border
-if(hover==-1){
-    reJuice= string(juice);
-}
-else if (abilities[hover]=="Move"){
-    reJuice= string(juice) + " - X"
+draw_rectangle(x-1,y-1,x+width,y+36,true);//border
+
+if(hover==-1 || remainingJuice &lt; abilityCost[hover]){
+    var reJuice= remainingJuice;
 }
 else{
-    reJuice= string(juice - abilityCost[hover]);
+    var reJuice= remainingJuice - abilityCost[hover];
 }
-draw_text(center,y+buffer,"Juice: " + reJuice);
+//draw_text(center,y+buffer,"Juice: " + reJuice);
+//*/
 
-var y2= y+buffer*4-1;
+
+drawContainer(sHeart,heartCount,remainingHealth,heartX,y+10);
+drawContainer(sJuice,juiceCount,reJuice,juiceX, y+10+17);
+
+
+var y2= y+buffer+36;
 
 draw_set_halign(fa_center);
 for(var i = 0; i&lt;count;i++){
-    if(abilityCost[i]&gt;juice){
+    if(abilityCost[i]&gt;remainingJuice){
         draw_set_colour(c_dkgray);
     }
     else if(hover==i){//change color if mouse over
@@ -206,8 +211,9 @@ for(var i = 0; i&lt;count;i++){
     
     //draw_rectangle(mouse_x,mouse_y,mouse_x,mouse_y,false);
 }
-    
-    
+
+
+
 </string>
           </argument>
         </arguments>

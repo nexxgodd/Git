@@ -100,15 +100,21 @@ buffer = string_height('B')*1.5;
     draw_text(0,y2,"isBusy = " + string(global.isBusy));//word);
     
     y2+=buffer;
-    
-    
-    
-    
     y2+=buffer;
-    draw_text(0,y2,"view X = " + string(view_xview));
     
+    draw_text(0,y2,"view X = " + string(view_xview));
     y2+=buffer;
     draw_text(0,y2,"view Y = " + string(view_yview));
+    
+    y2+=buffer;
+    y2+=buffer;
+    
+    draw_text(0,y2,"Mouse X = " + string(mouse_x));
+    y2+=buffer;    
+    draw_text(0,y2,"Mouse Y = " + string(mouse_y));
+    
+    
+    //draw_rectangle(mouse_x,mouse_y,mouse_x+1,mouse_y+1,true);
 }
 </string>
           </argument>

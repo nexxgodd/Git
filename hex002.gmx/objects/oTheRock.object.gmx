@@ -28,6 +28,9 @@
             <string>
 originalType = object_index;
 
+totalHealth = 10;
+remainingHealth = 5//totalHealth;
+
 totalMoves = 10;
 remainingMoves = totalMoves;
 

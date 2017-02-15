@@ -5,19 +5,18 @@ with (instance_create(x,y,oAbilityBox)){
     owner = argument0;
     abilities = owner.visitor.abilityList;
     abilityCost = owner.visitor.abilityCost;
-    juice = owner.visitor.remainingMoves;
     buffer = string_height('B');
     count = array_length_1d(abilities);
     
-    width = string_width("Juice: - X");    
+    width = 0;//string_width("Juice: - X");    
     for (var i = count-1; i>=0; i--){
         var w = string_width(abilities[i] + ": " + string(abilityCost[i]));
-        half[i]=w/2+1;
+        half[i]=floor(w/2+1);
         width = max(w, width);
     }    
      
     width+=2*buffer;
-    height = buffer*4+(2*buffer*count);
+    height = buffer+(2*buffer*count) +36;
     
     //adjust x to proper quadrant
     if(x-view_xview<view_wview/2){
@@ -37,6 +36,13 @@ with (instance_create(x,y,oAbilityBox)){
     center = floor(x+width/2);
     hover = -1;
     
+    heartCount = owner.visitor.totalHealth/2;
+    heartX = center - (heartCount*16/2);
+    remainingHealth = owner.visitor.remainingHealth;
+    
+    juiceCount = owner.visitor.totalMoves/2;
+    juiceX = center - (juiceCount*16/2);
+    remainingJuice = owner.visitor.remainingMoves;
 }
 
 
