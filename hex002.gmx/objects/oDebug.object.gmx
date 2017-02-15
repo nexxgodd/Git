@@ -113,6 +113,12 @@ buffer = string_height('B')*1.5;
     y2+=buffer;    
     draw_text(0,y2,"Mouse Y = " + string(mouse_y));
     
+    y2+=buffer;
+    y2+=buffer;
+    
+    draw_text(0,y2,"My Team = " + string(global.myTeam));
+    y2+=buffer;
+    draw_text(0,y2,"Turn = " + string(global.turn));
     
     //draw_rectangle(mouse_x,mouse_y,mouse_x+1,mouse_y+1,true);
 }

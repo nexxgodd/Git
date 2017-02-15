@@ -28,6 +28,7 @@
             <string>dragging = false;
 dragX = 0;
 dragY = 0;
+window_set_cursor(cr_none);
 </string>
           </argument>
         </arguments>

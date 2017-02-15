@@ -8,15 +8,15 @@ with (instance_create(x,y,oAbilityBox)){
     buffer = string_height('B');
     count = array_length_1d(abilities);
     
-    width = 0;//string_width("Juice: - X");    
+    width = 0;  
     for (var i = count-1; i>=0; i--){
-        var w = string_width(abilities[i] + ": " + string(abilityCost[i]));
+        var w = string_width(abilities[i]) + ceil(abilityCost[i]/2)*16;
         half[i]=floor(w/2+1);
         width = max(w, width);
     }    
      
     width+=2*buffer;
-    height = buffer+(2*buffer*count) +36;
+    height = buffer+(2*buffer*count) +36 -1;
     
     //adjust x to proper quadrant
     if(x-view_xview<view_wview/2){
@@ -40,7 +40,7 @@ with (instance_create(x,y,oAbilityBox)){
     heartX = center - (heartCount*16/2);
     remainingHealth = owner.visitor.remainingHealth;
     
-    juiceCount = owner.visitor.totalMoves/2;
+    juiceCount = ceil(owner.visitor.totalMoves/2);
     juiceX = center - (juiceCount*16/2);
     remainingJuice = owner.visitor.remainingMoves;
 }

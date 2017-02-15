@@ -12,6 +12,7 @@
       <sprite>sprites\sUIcorner</sprite>
       <sprite>sprites\sHeart</sprite>
       <sprite>sprites\sJuice</sprite>
+      <sprite>sprites\sMouse</sprite>
     </sprites>
     <sprite>sprites\sTile</sprite>
     <sprite>sprites\sWall</sprite>

@@ -30,17 +30,17 @@ hover = -1;
 
 if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)){//mouse in the box
     //what box is the mouse in?
-    var y2 = y+buffer+36+1;
+    var y2 = y+buffer+36;
     for(var i = 0; i&lt;count; i++){
         if(mouse_y&lt; y2){
             break;
         }
-        y2+=buffer+2;
+        y2+=buffer;
         if(mouse_y&lt;=y2 &amp;&amp; mouse_x&gt;= center-half[i] &amp;&amp; mouse_x&lt;= center+half[i]){
             hover =i;
             break;        
         }
-        y2+= buffer-1;
+        y2+= buffer;
     }
     global.blocked = true; ///this...
     
@@ -179,17 +179,14 @@ if(hover==-1 || remainingJuice &lt; abilityCost[hover]){
 else{
     var reJuice= remainingJuice - abilityCost[hover];
 }
-//draw_text(center,y+buffer,"Juice: " + reJuice);
-//*/
 
-
-drawContainer(sHeart,heartCount,remainingHealth,heartX,y+10);
-drawContainer(sJuice,juiceCount,reJuice,juiceX, y+10+17);
+drawContainer(sHeart,heartCount,remainingHealth,heartX,y+2);
+drawContainer(sJuice,juiceCount,reJuice,juiceX, y+2+17);
 
 
 var y2= y+buffer+36;
 
-draw_set_halign(fa_center);
+draw_set_halign(fa_right);
 for(var i = 0; i&lt;count;i++){
     if(abilityCost[i]&gt;remainingJuice){
         draw_set_colour(c_dkgray);
@@ -200,14 +197,14 @@ for(var i = 0; i&lt;count;i++){
     else{
         draw_set_colour(c_white);
     }
-    draw_rectangle(center-half[i], y2, center+half[i], y2+buffer+2,false);
+    draw_rectangle(center-half[i], y2, center+half[i], y2+buffer,false);
     draw_set_colour(c_black);
-    draw_rectangle(center-half[i]-1, y2-1, center+half[i], y2+buffer+2,true);
-    //border?
-    y2++;
+    draw_rectangle(center-half[i]-1, y2-1, center+half[i], y2+buffer,true);//border
+    //y2++;
     
-    draw_text(center,y2,abilities[i] + ": " + string(abilityCost[i]));
-    y2+=buffer*2-1;
+    draw_text(center+half[i],y2,abilities[i]);// + string(abilityCost[i]));
+    drawContainer(sJuice,abilityCost[i]/2,abilityCost[i],center-half[i], y2);
+    y2+=buffer*2;
     
     //draw_rectangle(mouse_x,mouse_y,mouse_x,mouse_y,false);
 }
